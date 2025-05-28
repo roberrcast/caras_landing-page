@@ -1,0 +1,76 @@
+@use "./util";
+@use "./media-query";
+
+.highlights {
+
+    //Layout del collage en el highlights
+    &__grid {
+        width: 100%;
+        display: grid;
+        box-sizing: border-box;
+        padding: 0 1.75rem;
+        gap: 1rem;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(10, 1fr);
+
+        grid-template-areas: 
+        "..     ..     ..     main main main newspaper newspaper newspaper newspaper"
+        "tribal tribal tribal main main main newspaper newspaper newspaper newspaper"
+        "tribal tribal tribal main main main celebrity celebrity celebrity .."
+        "tribal tribal tribal main main main celebrity celebrity celebrity ..";
+
+        :nth-child(1) {
+            grid-area: tribal;
+        }
+
+        :nth-child(2) {
+            grid-area: main;
+        }
+
+        :nth-child(3) {
+            grid-area: newspaper;
+        }
+
+        :nth-child(4) {
+            grid-area: celebrity;
+        }
+
+        //Una vez alcanzados los 1168px de tamaño de pantalla, cambiamos el layout del collage
+        @include media-query.respond('73em') {
+            grid-template-rows: repeat(6, 1fr);
+            grid-template-columns: repeat(5, 1fr);
+        
+            grid-template-areas:
+            "main main main tribal    tribal"
+            "main main main tribal    tribal"
+            "main main main newspaper newspaper"
+            "main main main newspaper newspaper"
+            "main main main celebrity celebrity"
+            "main main main celebrity celebrity";
+
+            //Este mixin de 'aspect-ratio' asegura que las img de los elementos seleccionados encajen dentro de su contenedor, mienstras que la 'main' img tiene diferente aspect-ratio
+            :nth-child(1) img {
+                @include util.aspect-ratio;
+            }
+
+            :nth-child(3) img {
+                @include util.aspect-ratio;
+            }
+
+            :nth-child(4) img {
+                @include util.aspect-ratio;
+            }
+        }
+
+        @include media-query.respond('53.125em') {
+            display: flex;
+            padding: 2rem 0;
+            border-top: util.$border;
+            border-bottom: util.$border;
+        }
+
+        @include media-query.respond('26.75em') {
+            display: grid;
+        }
+    }
+}

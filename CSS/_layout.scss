@@ -1,0 +1,416 @@
+@use "./util";
+@use "./grids";
+@use "./media-query";
+
+.header {
+    @include util.full-width;
+    @include util.flex-column-center;
+    justify-content: center;
+    padding: 1.75rem;
+
+    @include media-query.respond('26.75em') {
+        padding: 1.5rem .5rem;
+    }
+
+    &__logo-link {
+        width: 230px;
+
+        @include media-query.respond('53.125em') {
+            width: 195px;
+        }
+
+        @include media-query.respond('35em') {
+            width: 30%;
+        }
+
+        @include media-query.respond('26.75em') {
+            width: 35%;
+        }
+    }
+
+    &__home {
+        @include util.flex-center;
+    }
+
+    &__logo {
+        width: 100%;
+    }
+
+    &__menu {
+        @include util.full-width;
+        margin: 1em 0 0 0;
+    }
+
+    &__nav {
+        @include util.flex-center;
+
+        @include media-query.respond('45em') {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+    }
+
+    &__social-media {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin: 1rem 0 0 0;
+        gap: 1rem;
+    }
+}
+
+.newsletter {
+    @include util.full-width;
+    @include util.flex-column-center;
+    padding: 2em;
+
+    @include media-query.respond('50.625em') {
+        padding: 1rem .5rem;
+    }
+
+    @include media-query.respond('26.75em') {
+        padding: 1rem .5rem;
+    }
+
+    &__form {
+        @include util.flex-column-center;
+
+        @include media-query.respond('25em') {
+            margin: .5rem;
+        }
+    }
+
+    &__txt {
+        padding: 1rem 0;
+    }
+}
+
+.highlights {
+
+    &__title {
+        @include util.flex-center;
+        margin: 5rem 0;
+    }
+
+    &__grid-txt {
+        width: 100%;
+        display: flex;
+        margin: 0 0 -5rem 0;
+
+        @include media-query.respond('53.125em') {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__grid-container {
+        width: 58%;
+
+        @include media-query.respond('56.5em') {
+            width: 50%;
+        }
+
+        @include media-query.respond('53.125em') {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 2rem 1.75rem;
+        }
+    }
+
+    &__card {
+        width: 100%;
+    }
+
+    &__ln {
+        margin: 1rem 0;
+        height: 30rem;
+
+        @include media-query.respond('79em') {
+            height: 400px;
+        }
+
+        @include media-query.respond('73em') {
+            height: 500px; //¿Por qué más grande? Porque el tamaño del collage se expande verticalmente por el cambio del layout y la línea se ve fea si es de 400px de longitud
+        }
+
+        @include media-query.respond('56.5em') {
+            height: 370px;
+        }
+
+        @include media-query.respond('53.125em') {
+            display: none;
+        }
+    }
+
+    &__txt-container {
+
+        @include media-query.respond('79em') {
+            padding: 4rem 0 0 0;
+        }
+
+        @include media-query.respond('56.5em') {
+            padding: 2rem 0 0 0;
+        }
+
+        @include media-query.respond('53.125em') {
+            padding: 0 1rem;
+            border-right: util.$border;
+            border-left: util.$border;
+        }
+
+        @include media-query.respond('26.75em') {
+            border: none;
+        }
+    }
+
+    &__txt {
+        box-sizing: border-box;
+        padding: 1rem 1.75rem;
+    }
+}
+
+.comments {
+    @include util.full-width;
+    padding: 1.75rem 7rem;
+    margin: 0 0 3rem 0;
+
+    @include media-query.respond('93.75em') {
+        margin: 2rem 0 3rem 0;
+    }
+
+    @include media-query.respond('86em') {
+        margin: 4rem 0 3rem 0;
+    }
+
+    @include media-query.respond('79em') {
+        padding: 1.75rem 6rem;
+    }
+
+    @include media-query.respond('73em') {
+        margin: 5rem 0 3rem 0;
+        padding: 1.75rem 3.125rem;
+    }
+
+    @include media-query.respond('53.125em') {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.75rem 0;
+    }
+
+    @include media-query.respond('50.625em') {
+        padding: 1.75rem 1.125rem;
+    }
+
+    &__container {
+        width: 100%;
+        display: flex;
+
+        @include media-query.respond('50.625em') {
+            width: 100%;
+        }
+
+        @include media-query.respond('26.75em') {
+            display: flex;
+            width: 75%;
+        }
+    }
+    
+    &__title {
+        @include util.flex-center;
+        margin: 0 0 5rem 0;
+
+        @include media-query.respond('53.125em') {
+            margin: 3rem 0;
+        }
+    }
+
+    &__flex {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 0 4rem 0;
+        border-bottom: 1px solid util.$colorBorder;
+
+        @include media-query.respond('53.125em') {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @include media-query.respond('26.75em') { 
+            @include util.columnFlex;
+        }
+    }
+
+    &__card {
+        @include util.flex-column-center;
+        width: 15%;
+        box-sizing: border-box;
+        padding: 1rem;
+        gap: 1rem;
+
+        @include media-query.respond('86em') {
+            width: 197px;
+        }
+
+        @include media-query.respond('56.5em') {
+            width: 150px;
+        }
+
+        @include media-query.respond('53.125em') {
+            width: 100%;
+        }
+    }
+}
+
+.headlines  {
+    @include util.full-width;
+    @include util.flex-space-between;
+    padding: 1.75rem 7rem;
+    margin: 0 0 3rem 0;
+
+    @include media-query.respond('79em') {
+        padding: 1.75rem 6rem;
+    }
+
+    @include media-query.respond('73em') {
+        padding: 1.75rem 3.125rem;
+    }
+
+    @include media-query.respond('75em') {
+        display: grid;
+        box-sizing: border-box;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    @include media-query.respond('50.625em') {
+        padding: 1rem 1.125rem;
+    }
+
+    @include media-query.respond('26.75em') {
+        @include util.columnFlex;
+        padding: 1rem 2rem;
+    }
+
+    @include media-query.respond('25em') {
+        padding: 1rem;
+    }
+
+    &__card {
+        width: 21%;
+
+        @include media-query.respond('79em') {
+            width: 252px;
+        }
+
+        @include media-query.respond('75em') {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 0 .5rem;
+        gap: .9rem;
+    }
+
+    &__date-author {
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+    }
+}
+
+.footer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.75rem 7rem;
+
+    @include media-query.respond('79em') {
+        padding: 1.75rem 6rem;
+    }
+
+    @include media-query.respond('73em') {
+        padding: 1.75rem 3.125rem 0 3.125rem;
+    }
+
+    @include media-query.respond('50.625em') {
+        padding: 1.75rem 1.125rem 0 1.125rem;
+    }
+
+    &__menus-legal {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10rem;
+        flex-wrap: wrap;
+
+        @include media-query.respond('75em') {
+            gap: 9rem;
+        }
+
+        @include media-query.respond('56.5em') {
+            gap: 7rem;
+        }
+
+        @include media-query.respond('45em') {
+            gap: 4rem;
+        }
+
+        @include media-query.respond('25em') {
+            gap: 5rem;
+        }
+    }
+
+    &__logo-container {
+        width: 150px;
+        display: flex;
+        align-items: center;
+
+        @include media-query.respond('50.625em') {
+            width: 125px;
+        }
+
+        @include media-query.respond('35em') {
+            width: 100px;
+        }
+    }
+
+    
+    &__menu {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    
+    }
+    &__disclaimer-social {
+        @include util.full-width;
+        @include util.flex-space-between;
+        align-items: center;
+        text-transform: uppercase;
+        padding: 2rem 0;
+        margin: 2rem 0 0 0;
+        border-top: 1px solid util.$colorBorder;
+
+        @include media-query.respond('56.5em') {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+
+    &__social-media {
+        display: flex;
+        opacity: .8;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" integrity="sha512-IJEbgDEF7OeKJRa0MY2PApnyJHRIsgzCveek4ec8VWQ+7KG3ZSKVNYa5xP/Gh0hVP0Mwb+gBsk+GwR3JQGhQNg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="CSS/main.css">
+    <title>Newsletter</title>
+</head>
+<body>
+    <header class="header"> 
+
+        <section class="header__logo-link">  
+            <a class="header__home" href="#"><img class="header__logo" src="img/Logo 1.png" alt="Logo de la Revista Caras"></a>  
+        </section>
+
+        <section class="header__menu">
+
+            <nav class="header__nav">
+                <a class="header__link" href="#">Entretenimiento</a>
+                <a class="header__link" href="#">Realeza</a>
+                <a class="header__link" href="#">Moda</a>
+                <a class="header__link" href="#">Lifestyle</a>
+                <a class="header__link" href="#">Personalidades</a>
+                <a class="header__link" href="#">Arte y Cultura</a>
+                <a class="header__link" href="#">Sports</a>
+                <a class="header__link" href="#">Revista</a>
+            </nav>
+
+            <section class="header__social-media">
+                <a class="header__link-icon" href="https://www.facebook.com/Revista.Caras" target="_blank"><i class="header__icon" data-feather="facebook"></i></a> 
+                <a class="header__link-icon" href="https://www.instagram.com/carasmexico/" target="_blank"><i class="header__icon" data-feather="instagram"></i></a>
+                <a class="header__link-icon" href="https://x.com/carasmexico" target="_blank"><i class="header__icon" data-feather="twitter"></i></a>
+                <i class="header__link-icon" data-feather="search"></i><!--Todavía no llego a JS para poder hacer este boton interactivo y hacer que la barra de búsqueda aparezca-->
+            </section> 
+        </section>
+    </header> 
+    <main>
+        <section class="newsletter">
+
+            <h1 class="newsletter__title">Newsletter</h1>
+            <p class="newsletter__txt">Las novedades de los espectáculos, actualidad, moda y cultura</p>
+
+            <form class="newsletter__form" action="">
+
+                <div class="newsletter__name">
+                    <label class="newsletter__label" for="name">Nombre</label>
+                    <input class="newsletter__input" type="text" id="name" name="name">
+                </div>
+
+                <div class="newsletter__email">
+                    <label class="newsletter__label" for="email">Correo Electrónico</label>
+                    <input class="newsletter__input" type="email" name="email" id="email" required>
+                </div>
+
+                <input class="newsletter__input newsletter__submit" type="submit" value="Suscribirse">
+            </form>
+        </section>
+
+        <section class="highlights">
+
+            <h2 class="highlights__title">Nuestros suscriptores disfrutan de mucho más...</h2>
+
+            <section class="highlights__grid-txt">
+
+                <section class="highlights__grid-container">
+
+                    <!-- Sección del collage que se logra con grid -->
+                    <section class="highlights__grid">
+                        
+                        <!--Image 1 'tribal'-->
+                        <section class="highlights__card">
+                            <img class="highlights__img" src="img/culture.jpg" alt="Imagen de mujeres con vestidos nativos y coloridos">
+                        </section>
+
+                        <!-- Image 2 'main'-->
+                        <section class="highlights__card">
+                            <img class="highlights__img highlights__img-position" src="img/fashion.jpg" alt="Imagen de mujer">
+                        </section>
+
+                        <!--Image 3 'newspaper'-->
+                        <section class="highlights__card">
+                            <img class="highlights__img" src="img/news.jpg" alt="Imagen de persona leyendo periodico">
+                        </section>
+
+                        <!--Image 4 'celebrity'-->
+                        <section class="highlights__card">
+                            <img class="highlights__img" src="img/celebrity.jpg" alt="Foto de Zoe Saldaña en los Golden Globes">
+                        </section>
+                    </section>
+                </section>
+
+                <hr class="highlights__ln">
+
+                <section class=highlights__txt-container>
+                    <p class="highlights__txt"><span class="highlights__span">Entérate</span> de lo último en la moda</p>
+                    <p class="highlights__txt"><span class="highlights__span">Descubre</span> culturas y arte</p>
+                    <p class="highlights__txt"><span class="highlights__span">Infórmate</span> de lo que sucede a tu alrededor</p>
+                    <p class="highlights__txt"><span class="highlights__span">Conoce</span> las novedades del entretenimiento</p>
+                </section>
+            </section>
+        </section>
+
+        <section class="comments">
+
+            <h3 class="comments__title">Nuestros suscriptores dicen:</h3>
+
+            <section class="comments__container">
+
+                <section class="comments__flex">
+
+                        <!--1-->
+                    <section class="comments__card">
+                        <img class="comments__img" src="img/testimonial1.jpg" alt="Imagen de usuario">
+                        <h4 class="comments__username">Laura</h4>
+                        <p class="comments__txt">&quot;Al suscribirme, tuve la oportunidad de manternerme al día de lo último en la moda fitness.&quot;</p>
+                    </section>
+
+                        <!--2-->
+                    <section class="comments__card">
+                        <img class="comments__img" src="img/testimonial2.jpg" alt="Imagen de usuario">
+                        <h4 class="comments__username">Ramón</h4>
+                        <p class="comments__txt">&quot;La verdad no sabía qué esperar, pero al suscribirme pude estar al tanto de todas las novedades en el mundo.&quot;</p>
+                    </section>
+
+                        <!--3-->
+                    <section class="comments__card">
+                        <img class="comments__img" src="img/testimonial3.jpg" alt="Imagen de usuario">
+                        <h4 class="comments__username">Vidales</h4>
+                        <p class="comments__txt">&quot;La mejor parte de suscribirme fue poder estar informada de todo sin necesidad de buscar por mi cuenta, todo está al alcance de mis manos.&quot;</p>
+                    </section>
+
+                        <!--4-->
+                    <section class="comments__card">
+                        <img class="comments__img comments__svg" src="img/guy.jpg" alt="Imagen de avatar">
+                        <h4 class="comments__username">Jorge</h4>
+                        <p class="comments__txt">&quot;Al suscribirme tuve la oportunidad de ver las noticias desde otra perspectiva.&quot;</p>
+                    </section>
+                </section>
+            </section>
+        </section>
+
+        <section class="headlines"> <!-- Para esta sección utilicé noticias falsas satíricas -->
+
+                <!-- 1 -->
+            <section class="headlines__card">
+                <a href="#"><img class="headlines__img" src="img/trump.jpg" alt="Imagen del presidente Donald Trump"></a>
+
+                <div class="headlines__content">
+                    <a class="headlines__link-section" href="#">Personalidades</a>
+                    <a class="headlines__link-txt" href="#">Trump decide extinguir los incendios en California negándolos</a>
+
+                    <div class="headlines__date-author">
+                        <p class="headlines__date">enero 16, 2025</p>
+                        <span>&middot;</span>
+                        <a class="headlines__link-author" href="#">Paul Álvarez</a>
+                    </div>
+                </div>
+            </section>
+
+                <!-- 2 -->
+            <section class="headlines__card">
+                    <a href="#"><img class="headlines__img" src="img/david.jpg" alt="Imagen de Sir David Attenborough."></a>
+
+                <div class="headlines__content">
+                    <a class="headlines__link-section" href="#">Personalidades</a>
+                    <a class="headlines__link-txt" href="#">David Attenborough, avergonzado, se da cuenta de que dedicó 10 minutos a describir la quietud de un señuelo para patos</a>
+
+                    <div class="headlines__date-author">
+                        <p class="headlines__date">enero 16, 2025</p>
+                        <span>&middot;</span>
+                        <a class="headlines__link-author" href="#">Silvia Rodríguez</a>
+                    </div>
+                </div>
+            </section>
+
+                <!-- 3 -->
+            <section class="headlines__card">
+                <a href="#"><img class="headlines__img" src="img/bruno.png" alt="Imagen del Cantante Bruno Mars."></a>
+
+                <div class="headlines__content">
+                    <a class="headlines__link-section" href="#">Entretenimiento</a>
+                    <a class="headlines__link-txt" href="#">Bruno Mars habría contraído una deuda de &dollar;50 millones de dólares con el casino MGM tras asumir que los cócteles eran gratuitos</a>
+
+                    <div class="headlines__date-author">
+                        <p class="headlines__date">enero 16, 2025</p>
+                        <span>&middot;</span>
+                        <a class="headlines__link-author" href="#">Fito Hernández</a>
+                    </div>
+                </div>   
+            </section>
+
+                <!-- 4 -->
+            <section class="headlines__card">
+                <a href="#"><img class="headlines__img" src="img/coachella.png" alt="Imagen del festival de Coachella."></a>
+
+                <div class="headlines__content">
+                    <a class="headlines__link-section" href="#">Entretenimiento</a>
+                    <a class="headlines__link-txt" href="#">Los organizadores de Coachella anuncian planes para  ampliar el festival a 52  fines de semana al año</a>
+
+                    <div class="headlines__date-author">
+                        <p class="headlines__date">enero 16, 2025</p>
+                        <span>&middot;</span>
+                        <a class="headlines__link-author" href="#">Susana Armendáriz</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer">
+
+        <article class="footer__menus-legal">
+
+            <a class="footer__logo-link" href="#">
+                <section class="footer__logo-container">
+                    <img class="footer__logo" src="img/Logo-Caras.png" alt="Logotipo de la revista Caras">
+                </section>
+            </a>
+
+            <section class="footer__menu">
+
+                <p class="footer__title">Descubrir más</p>
+
+                <nav class="footer__nav">
+                    <a class="footer__link" href="#">Entretenimiento</a>
+                    <a class="footer__link" href="#">Realeza</a>
+                    <a class="footer__link" href="#">Moda</a>
+                    <a class="footer__link" href="#">Personalidades</a>
+                    <a class="footer__link" href="#">Arte y Cultura</a>
+                </nav>
+            </section>
+
+            <section class="footer__menu">
+                <p class="footer__title">Revista</p>
+                <nav class="footer__nav">
+                    <a class="footer__link" href="#">App Store</a>
+                    <a class="footer__link" href="#">Edición Impresa</a>
+                    <a class="footer__link" href="#">Magzter</a>
+                    <a class="footer__link" href="#">Pressreader</a>
+                    <a class="footer__link" href="#">Zinio</a>
+                </nav>
+            </section>
+
+            <section class="footer__menu">
+                <p class="footer__title">Legales</p>
+                <nav class="footer__nav">
+                    <a class="footer__link" href="#">Aviso de privacidad</a>
+                    <a class="footer__link" href="#">Términos de servicio</a>
+                </nav>
+            </section>
+        </article>
+
+        <section class="footer__disclaimer-social">
+            <p class="footer__txt">editorial televisa s.a. de c.v. todos los derechos reservados. tbg - editorial televisa - entertainment - news</p>
+
+            <section class="footer__social-media">
+                <a class="footer__link-icon" href="https://www.facebook.com/Revista.Caras" target="_blank"><i class="footer__icon" data-feather="facebook"></i></a>
+                <a class="footer__link-icon" href="https://www.instagram.com/carasmexico/" target="_blank"><i class="footer__icon" data-feather="instagram"></i></a>
+                <a class="footer__link-icon" href="https://x.com/carasmexico" target="_blank"><i class="footer__icon" data-feather="twitter"></i></a>
+            </section>
+        </section>
+    </footer>
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+    feather.replace();  
+</script>
+</body>
+</html>
