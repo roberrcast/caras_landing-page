@@ -3,13 +3,13 @@
 
 //Fuentes
 
-$barlowLight: 'Barlow-light', Arial, Helvetica, sans-serif;
-$barlowBold: 'Barlow-bold', Arial, Helvetica, sans-serif;
-$playfair: 'Playfair', serif, Arial;
+$barlowLight: "Barlow-light", Arial, Helvetica, sans-serif;
+$barlowBold: "Barlow-bold", Arial, Helvetica, sans-serif;
+$playfair: "Playfair", serif, Arial;
 
 //Variables
 
-$primaryTheme: #ED1E1E;
+$primaryTheme: #ed1e1e;
 $txtColorMain: #404040;
 $txtColorSub: #999999;
 $footerBg: #fbfbfb;
@@ -20,6 +20,10 @@ $colorFooterTxt: #666;
 $colorLinkHover: #242424;
 $colorBorder: #e3e3e3;
 $border: 1px solid $colorBorder;
+$errorPrompt: rgba(237, 30, 30, 0.7);
+$successPrompt: rgba(46, 125, 50, 0.7);
+$namePrompt: rgba(255, 193, 7, 0.7);
+$colorTxtPrompt: #1a1a1a;
 
 //Mixins
 
@@ -50,8 +54,6 @@ $border: 1px solid $colorBorder;
     color: $txtColorMain;
 }
 
-
-
 @mixin txtSizeWeight($size) {
     font-size: $size;
     font-weight: 700;
@@ -70,10 +72,9 @@ $border: 1px solid $colorBorder;
     object-fit: cover;
 }
 
-//Hover 
+//Hover
 
 @mixin hover($color) {
-
     @media (hover: hover) {
         &:hover {
             color: $color;
@@ -81,3 +82,39 @@ $border: 1px solid $colorBorder;
         }
     }
 }
+
+@mixin prompt($bg, $color, $padd, $radius) {
+    background-color: $bg;
+    color: $color;
+    padding: $padd;
+    border-radius: $radius;
+}
+
+@mixin promptPosition($left) {
+    position: absolute;
+    left: $left;
+}
+
+@mixin promptAnimation {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition:
+        opacity 0.3s ease-in-out,
+        transform 0.3s ease-in-out,
+        visibility 0.3s ease-in-out;
+    visibility: hidden;
+}
+
+@mixin promptActive {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+@mixin toggleAnimation {
+    transition:
+        opacity 0.3s ease-in-out,
+        transform 0.3s ease-in-out,
+        visibility 0.3s ease-in-out;
+}
+
