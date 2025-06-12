@@ -215,7 +215,7 @@ email.addEventListener("click", () => {
     setTimeout(() => {
         namePrompt.classList.remove("newsletter__name-prompt--active");
     }, 3000);
-});
+}); // Intenta integrar esto en el event listener del submit
 
 // --------------------Event listener para el submit-----------------------------
 form.addEventListener("submit", (event) => {
