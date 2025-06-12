@@ -1,3 +1,4 @@
+//-------------------------variables-----------------------------------------
 // Form
 const form = document.getElementById("subscriptionForm");
 
@@ -7,32 +8,63 @@ const name = document.getElementById("name");
 const email = document.getElementById("email");
 
 // Prompts
-const namePrompt = document.querySelector(".newsletter__name-error");
+const namePrompt = document.querySelector(".newsletter__name-prompt");
 
 const emailPrompt = document.getElementById("promptEmail");
 
 // Clases CSS (guardamos las clases en variables para ser accedidas de manera más sencilla)
+// para la validación del email
 const errorClass = "newsletter__email-error";
 const errorActiveClass = "newsletter__email-error--active";
 const successClass = "newsletter__email-success";
 const successActiveClass = "newsletter__email-success--active";
 
-// Prompts
-let currentPromptType = null; // Null, success, o error
+// Prompts email
+let currentPromptType = null; // Esto es para el estrado del prompt actual: null, success, o error (email)
 
-let isPromptVisible = false;
+let isPromptVisible = false; // O true para visible (prompt del email) se utiliza en el event listener del email prompt
 
 // Esto es para algo llamado "debounce" una función para el clearTimeout/setTimeout, que detiene la ejecución de un temporizador
-// para permitir el cambio de estados y animaciones de los prompts (success/error)
+// para permitir el cambio de estados y animaciones de los prompts (success/error) del email
 let debounceTimer = null;
 
-// Email regex
-const validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+// Temporizador para esconder el prompt
+let hidePromptTimer = null;
 
+// Email regex
+const validEmail = /^[a-zA-Z0-9._%+;,-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+// Modal para el mensaje de éxito o error una vez que se haga submit al formulario
+const alert = document.getElementById("alert");
+
+// Mensajes del prompt el para submit event del formulario
+const text1 = document.querySelector(".text-1");
+
+const text2 = document.querySelector(".text-2");
+
+//--------------------------Event listeners---------------------------------------------
+
+// Esta función nos ayudará a esconder el email prompt en el event listener después de algunos segundos
+function hidePrompt() {
+    if (!isPromptVisible) return;
+
+    emailPrompt.classList.remove(errorActiveClass, successActiveClass);
+
+    setTimeout(() => {
+        if (!isPromptVisible) {
+            emailPrompt.classList.remove(errorClass, successClass);
+            emailPrompt.innerText = "";
+            currentPromptType = null;
+        }
+    }, 300);
+}
+
+// Event listener para verificar el formato del correo electrónico y mostrar el prompt correspondiente
 email.addEventListener("input", (event) => {
-    // Borra el temporizador previo (reset), de esta manera reseteando la ejecución del código.
+    // clearTimeout borra el temporizador previo (reset), de esta manera reseteando la ejecución del código.
     // Esto es para prevenir que el contador se ejecute mientras el usuario esté tecleando rápido y comienza cuando se detiene
     clearTimeout(debounceTimer);
+    clearTimeout(hidePromptTimer); // Debounce timer para la función para esconder el prompt
 
     // Este set timeout hace que el código dentro de él se ejecute después de 300ms y reinica el temporizador después de cada
     // presión del teclado
@@ -81,6 +113,7 @@ email.addEventListener("input", (event) => {
 
         // Si el prompt debe estar oculto (p.ej., el input esta vacío)
         if (wantsToHide) {
+            hidePrompt(); // Función para esonder el prompt después de algunos segundos
             // Si el prompt es visible
             if (isPromptVisible) {
                 emailPrompt.classList.remove(
@@ -97,7 +130,7 @@ email.addEventListener("input", (event) => {
                         emailPrompt.innerText = ""; // 2
                         currentPromptType = null; //3
                     }
-                }, 300); // Después de 300ms (que coincide con la animación de la transición CSS) se comprueba si el input sigue
+                }, 350); // Después de 300ms (que coincide con la animación de la transición CSS) se comprueba si el input sigue
                 // vacío y se limpia todo después de la transición con el remove class (1), innerText(2) y prompt (3)
             }
         }
@@ -111,7 +144,9 @@ email.addEventListener("input", (event) => {
                 emailPrompt.classList.remove(
                     errorActiveClass,
                     successActiveClass,
-                ); // 1. Comienza el fade-out
+                );
+
+                // 1. Comienza el fade-out
 
                 setTimeout(() => {
                     // 2. Después de un breve retraso (para que comience el fade-out) se actualiza el contenido y el fondo
@@ -144,6 +179,7 @@ email.addEventListener("input", (event) => {
                 emailPrompt.classList.remove(errorClass, successClass); // Se limpia cualquier clase anterior
 
                 if (newPromptType === "success") {
+                    emailPrompt.classList.add(successClass);
                 } else {
                     emailPrompt.classList.add(errorClass); // Y aquí se añade la nueva clase
                 }
@@ -164,9 +200,74 @@ email.addEventListener("input", (event) => {
             // Esto actualiza el currentPromptType al nuevo estado (success o error)
             currentPromptType = newPromptType;
             isPromptVisible = true; // Se marca el prompt visible
+
+            hidePromptTimer = setTimeout(hidePrompt, 3000); // Se establecen 3 segundos para esconder el prompt automáticamente
         }
-    }, 300); // Se hace debounce al input por 300ms para darle suficiente tiempo al navegador para aplicar todo
-    // lo que pasa dentro de este debounce (debounceTimer)
+    }, 350); // Se hace debounce al input por 350ms para darle suficiente tiempo al navegador para aplicar todo
+    // lo que pasa dentro de este debounce (debounceTimer) en términos de estilo y cambios de estado
 });
 
-// Codigo para el name prompt
+// --------------------Código para el name prompt-------------------------------
+email.addEventListener("click", () => {
+    if (name.value === "") {
+        namePrompt.classList.add("newsletter__name-prompt--active");
+    }
+    setTimeout(() => {
+        namePrompt.classList.remove("newsletter__name-prompt--active");
+    }, 3000);
+});
+
+// --------------------Event listener para el submit-----------------------------
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const nameInput = name.value.trim();
+
+    const success = "success";
+    const error = "error";
+    const alertActive = "newsletter__alert--active";
+
+    alert.classList.remove(success, error);
+    text2.innerText = "";
+
+    if (!nameInput && !email.value) {
+        alert.classList.add(error);
+        alert.classList.add(alertActive);
+
+        text1.innerText = "Por favor agregue su nombre y correo electrónico";
+    } else if (!nameInput && validEmail.test(email.value)) {
+        alert.classList.add(error);
+        alert.classList.add(alertActive);
+
+        text1.innerText = "Por favor escriba su nombre en el campo indicado";
+    } else if (!nameInput && validEmail.test(email.value) === false) {
+        alert.classList.add(error);
+        alert.classList.add(alertActive);
+
+        text1.innerText = "Por favor escriba su nombre en el campo indicado";
+        text2.innerText = "Por favor ingrese un correo electrónico válido";
+    } else if (nameInput !== "" && !email.value) {
+        alert.classList.add(error);
+        alert.classList.add(alertActive);
+
+        text1.innerText = "Por favor ingrese un correo electrónico";
+    } else if (nameInput !== "" && validEmail.test(email.value) === false) {
+        alert.classList.add(error);
+        alert.classList.add(alertActive);
+
+        text1.innerText = "Por favor ingrese un correo electrónico válido";
+    } else {
+        alert.classList.remove(error);
+        alert.classList.add(success);
+        alert.classList.add(alertActive);
+        text1.innerText = "Suscripción añadida con éxito!";
+        form.reset();
+    }
+});
+
+// ------------------------Botón de cerrado para el alert-----------------------------
+const closePrompt = document.querySelector(".newsletter__alert-close");
+
+closePrompt.addEventListener("click", () => {
+    alert.classList.remove("newsletter__alert--active");
+});

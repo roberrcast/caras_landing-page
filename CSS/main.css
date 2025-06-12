@@ -140,6 +140,7 @@
 }
 
 .newsletter {
+  position: relative;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -179,6 +180,17 @@
   display: flex;
   align-items: center;
   gap: 3px;
+}
+.newsletter__alert {
+  position: fixed;
+  z-index: 1000;
+}
+.newsletter__alert-inner {
+  margin: 0 auto;
+}
+.newsletter__alert-div {
+  display: flex;
+  justify-content: center;
 }
 
 .highlights__title {
@@ -658,10 +670,10 @@ a {
   border-radius: 4px;
   background-color: #fbfbfb;
 }
-.newsletter__name-emtpy {
+.newsletter__name-prompt {
   position: absolute;
-  left: 59.2%;
-  background-color: rgba(237, 30, 30, 0.7);
+  left: 58.2%;
+  background-color: rgba(255, 193, 7, 0.7);
   color: #1a1a1a;
   padding: 4px;
   border-radius: 8px;
@@ -670,11 +682,10 @@ a {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
   visibility: hidden;
 }
-.newsletter__name-emtpy--active {
+.newsletter__name-prompt--active {
   opacity: 1;
   transform: translateX(0);
   visibility: visible;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 .newsletter__email-prompt {
   position: absolute;
@@ -725,6 +736,54 @@ a {
   .newsletter__submit {
     font-size: 0.9rem;
   }
+}
+.newsletter__alert {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem 1rem 1rem;
+  border-radius: 8px;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-40px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+.newsletter__alert.error {
+  background-color: rgba(255, 193, 7, 0.95);
+}
+.newsletter__alert.success {
+  background-color: rgba(46, 125, 50, 0.95);
+}
+.newsletter__alert--active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+.newsletter__alert-close {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s all ease-in-out;
+}
+@media (hover: hover) {
+  .newsletter__alert-close:hover {
+    color: #000;
+    cursor: pointer;
+  }
+}
+@media (hover: hover) {
+  .newsletter__alert-close:hover {
+    transform: scale(1.1);
+  }
+}
+.newsletter__alert-icon {
+  width: 100%;
+}
+.newsletter__alert-txt {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #000;
 }
 
 .highlights {

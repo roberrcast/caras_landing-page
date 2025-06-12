@@ -23,7 +23,10 @@ $border: 1px solid $colorBorder;
 $errorPrompt: rgba(237, 30, 30, 0.7);
 $successPrompt: rgba(46, 125, 50, 0.7);
 $namePrompt: rgba(255, 193, 7, 0.7);
+$formPrompt: rgba(255, 193, 7, 0.95);
 $colorTxtPrompt: #1a1a1a;
+$colorBlack: #000;
+$successPrompt2: rgba(46, 125, 50, 0.95);
 
 //Mixins
 
@@ -116,5 +119,29 @@ $colorTxtPrompt: #1a1a1a;
         opacity 0.3s ease-in-out,
         transform 0.3s ease-in-out,
         visibility 0.3s ease-in-out;
+}
+
+@mixin newsletterAlertPrompt {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem 1rem 1rem;
+    border-radius: 8px;
+    gap: 8px;
+}
+
+@mixin newsletterAlertHidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-40px);
+    transition:
+        opacity 0.3s ease-in-out,
+        transform 0.3s ease-in-out,
+        visibility 0.3s ease-in-out;
+}
+
+@mixin newsletterAlertShow {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
 }
 

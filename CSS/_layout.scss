@@ -61,6 +61,7 @@
 }
 
 .newsletter {
+    position: relative;
     @include util.full-width;
     @include util.flex-column-center;
     padding: 2em;
@@ -95,6 +96,20 @@
         display: flex;
         align-items: center;
         gap: 3px;
+    }
+
+    &__alert {
+        position: fixed;
+        z-index: 1000;
+
+        &-inner {
+            margin: 0 auto;
+        }
+
+        &-div {
+            display: flex;
+            justify-content: center;
+        }
     }
 }
 

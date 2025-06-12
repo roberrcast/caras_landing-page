@@ -109,32 +109,15 @@ a {
         background-color: util.$footerBg;
     }
 
-    &__name-emtpy {
-        @include util.promptPosition(59.2%);
-        @include util.prompt(util.$errorPrompt, util.$colorTxtPrompt, 4px, 8px);
+    &__name-prompt {
+        @include util.promptPosition(58.2%);
+        @include util.prompt(util.$namePrompt, util.$colorTxtPrompt, 4px, 8px);
         @include util.promptAnimation;
 
         &--active {
             @include util.promptActive;
-            @include util.toggleAnimation;
         }
     }
-
-    // &__name-success {
-    //     @include util.promptPosition(59.2%);
-    //     @include util.prompt(
-    //         util.$successPrompt,
-    //         util.$colorTxtPrompt,
-    //         4px,
-    //         8px
-    //     );
-    //     @include util.promptAnimation;
-    //
-    //     &--active {
-    //         @include util.promptActive;
-    //         @include util.toggleAnimation;
-    //     }
-    // }
 
     &__email-prompt {
         @include util.promptPosition(61%);
@@ -171,6 +154,49 @@ a {
 
         @include media-query.respond("26.75em") {
             font-size: 0.9rem;
+        }
+    }
+
+    &__alert {
+        @include util.newsletterAlertPrompt;
+        @include util.newsletterAlertHidden;
+
+        &.error {
+            background-color: util.$formPrompt;
+        }
+
+        &.success {
+            background-color: util.$successPrompt2;
+        }
+
+        &--active {
+            @include util.newsletterAlertShow;
+        }
+
+        &-close {
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.2s all ease-in-out;
+
+            @include util.hover(util.$colorBlack);
+
+            @media (hover: hover) {
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        &-icon {
+            width: 100%;
+        }
+
+        &-txt {
+            text-align: center;
+            font-size: 1.1rem;
+            color: util.$colorBlack;
         }
     }
 }
