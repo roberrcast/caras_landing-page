@@ -12,6 +12,8 @@ const namePrompt = document.querySelector(".newsletter__name-prompt");
 
 const emailPrompt = document.getElementById("promptEmail");
 
+const emailSubmit = document.getElementById("emailSubmit");
+
 // Clases CSS (guardamos las clases en variables para ser accedidas de manera más sencilla)
 // para la validación del email
 const errorClass = "newsletter__email-error";
@@ -95,7 +97,7 @@ email.addEventListener("input", (event) => {
         } else {
             showPrompt = true;
             newPromptType = "error";
-            message = "Por favor ingrese un e-mail válido";
+            message = "e-mail no válido";
         }
 
         // Esto decide qué hacer con el prompt
@@ -208,14 +210,14 @@ email.addEventListener("input", (event) => {
 });
 
 // --------------------Código para el name prompt-------------------------------
-email.addEventListener("click", () => {
-    if (name.value === "") {
-        namePrompt.classList.add("newsletter__name-prompt--active");
-    }
-    setTimeout(() => {
-        namePrompt.classList.remove("newsletter__name-prompt--active");
-    }, 3000);
-}); // Intenta integrar esto en el event listener del submit
+// email.addEventListener("click", () => {
+//     if (name.value === "") {
+//         namePrompt.classList.add("newsletter__name-prompt--active");
+//     }
+//     setTimeout(() => {
+//         namePrompt.classList.remove("newsletter__name-prompt--active");
+//     }, 3000);
+// }); // Intenta integrar esto en el event listener del submit
 
 // --------------------Event listener para el submit-----------------------------
 form.addEventListener("submit", (event) => {
@@ -230,32 +232,49 @@ form.addEventListener("submit", (event) => {
     alert.classList.remove(success, error);
     text2.innerText = "";
 
+    setTimeout(() => {
+        namePrompt.classList.remove("newsletter__name-prompt--active");
+
+        emailSubmit.classList.remove("newsletter__email-submit--active");
+    }, 3000);
+
     if (!nameInput && !email.value) {
         alert.classList.add(error);
         alert.classList.add(alertActive);
 
+        namePrompt.classList.add("newsletter__name-prompt--active");
+        emailSubmit.classList.add("newsletter__email-submit--active");
+
+        emailSubmit.innerText = "Escriba su e-mail";
         text1.innerText = "Por favor agregue su nombre y correo electrónico";
     } else if (!nameInput && validEmail.test(email.value)) {
         alert.classList.add(error);
         alert.classList.add(alertActive);
 
-        text1.innerText = "Por favor escriba su nombre en el campo indicado";
+        namePrompt.classList.add("newsletter__name-prompt--active");
+
+        text1.innerText = "Escriba su nombre en el campo";
     } else if (!nameInput && validEmail.test(email.value) === false) {
         alert.classList.add(error);
         alert.classList.add(alertActive);
 
-        text1.innerText = "Por favor escriba su nombre en el campo indicado";
-        text2.innerText = "Por favor ingrese un correo electrónico válido";
+        namePrompt.classList.add("newsletter__name-prompt--active");
+        emailSubmit.classList.add("newsletter__email-submit--active");
+
+        emailSubmit.innerText = "Formato no válido";
+
+        text1.innerText = "Agregue su nombre";
+        text2.innerText = "Ingrese un email válido";
     } else if (nameInput !== "" && !email.value) {
         alert.classList.add(error);
         alert.classList.add(alertActive);
 
-        text1.innerText = "Por favor ingrese un correo electrónico";
+        text1.innerText = "Ingrese un email";
     } else if (nameInput !== "" && validEmail.test(email.value) === false) {
         alert.classList.add(error);
         alert.classList.add(alertActive);
 
-        text1.innerText = "Por favor ingrese un correo electrónico válido";
+        text1.innerText = "Ingrese un email válido";
     } else {
         alert.classList.remove(error);
         alert.classList.add(success);
