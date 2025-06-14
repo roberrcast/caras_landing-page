@@ -68,6 +68,11 @@
     border-bottom: 1px solid #e3e3e3;
   }
 }
+@media (max-width: 26.25em) {
+  .highlights__grid {
+    display: grid;
+  }
+}
 
 .header {
   width: 100%;
