@@ -10,24 +10,23 @@ a {
 }
 
 .header {
-
     &__link {
         text-decoration: none;
         color: util.$txtColorMain;
         padding: 0 1em 0 0;
 
-        @include media-query.respond('50.625em') {
-            font-size: .9rem;
+        @include media-query.respond("50.625em") {
+            font-size: 0.9rem;
         }
 
-        @include media-query.respond('45em') {
+        @include media-query.respond("46.875em") {
             font-size: 1rem;
             text-align: center;
             padding: 0;
         }
 
-        @include media-query.respond('26.75em') {
-            font-size: .8rem;
+        @include media-query.respond("29.688em") {
+            font-size: 0.8rem;
         }
     }
 
@@ -42,15 +41,15 @@ a {
     &__title {
         @include util.txtSizeWeight(2.5rem);
 
-        @include media-query.respond('79em') {
+        @include media-query.respond("79em") {
             font-size: 2.4rem;
         }
 
-        @include media-query.respond('56.5em') {
+        @include media-query.respond("56.5em") {
             font-size: 2rem;
         }
 
-        @include media-query.respond('53.125em') {
+        @include media-query.respond("53.125em") {
             font-size: 1.75rem;
         }
     }
@@ -60,40 +59,40 @@ a {
         color: util.$primaryTheme;
         padding: 1rem;
 
-        @include media-query.respond('79em') {
+        @include media-query.respond("79em") {
             font-size: 1.35rem;
         }
 
-        @include media-query.respond('56.5em') {
+        @include media-query.respond("56.5em") {
             font-size: 1.25rem;
         }
 
-        @include media-query.respond('53.125em') {
+        @include media-query.respond("53.125em") {
             font-size: 1.15rem;
         }
 
-        @include media-query.respond('50.625em') {
+        @include media-query.respond("50.625em") {
             text-align: center;
             line-height: 2rem;
         }
 
-        @include media-query.respond('26.75em') {
+        @include media-query.respond("29.688em") {
             font-size: 1rem;
         }
     }
 
     &__label {
-
-        @include media-query.respond('53.125em') {
-            font-size: .95rem;
+        @include media-query.respond("53.125em") {
+            font-size: 0.95rem;
         }
 
-        @include media-query.respond('26.75em') {
-            font-size: .85rem;
+        @include media-query.respond("46.875em") {
+            font-size: 0.8rem;
         }
 
-        @include media-query.respond('25em') {
-            font-size: .76rem;
+        @include media-query.respond("25em") {
+            font-size: 0.76rem;
+            margin-left: 55px;
         }
     }
 
@@ -105,9 +104,253 @@ a {
     }
 
     &__input {
+        position: relative;
         border: none;
         border-radius: 4px;
         background-color: util.$footerBg;
+
+        @include media-query.respond("46.875em") {
+            font-size: 0.75rem;
+            width: 110px;
+        }
+    }
+
+    &__name-prompt {
+        @include util.promptPosition(925px);
+        @include util.prompt(util.$namePrompt, util.$colorTxtPrompt, 4px, 8px);
+        @include util.promptAnimation;
+
+        @include media-query.respond("93.75em") {
+            left: 885px;
+        }
+
+        @include media-query.respond("86em") {
+            left: 810px;
+        }
+
+        @include media-query.respond("79em") {
+            left: 750px;
+        }
+
+        @include media-query.respond("75em") {
+            left: 720px;
+        }
+
+        @include media-query.respond("73em") {
+            left: 700px;
+        }
+
+        @include media-query.respond("68.75em") {
+            left: 660px;
+        }
+
+        @include media-query.respond("61.875em") {
+            left: 610px;
+        }
+
+        @include media-query.respond("56.5em") {
+            font-size: 0.9rem;
+            left: 565px;
+        }
+
+        @include media-query.respond("53.125em") {
+            left: 535px;
+        }
+
+        @include media-query.respond("46.875em") {
+            font-size: 0.7rem;
+            left: 445px;
+        }
+
+        @include media-query.respond("40.625em") {
+            left: 395px;
+        }
+
+        @include media-query.respond("36.25em") {
+            left: 350px;
+        }
+
+        @include media-query.respond("29.688em") {
+            left: 300px;
+        }
+
+        @include media-query.respond("26.25em") {
+            left: 250px;
+        }
+
+        @include media-query.respond("25em") {
+            font-size: 0.65rem;
+            left: 220px;
+        }
+
+        &--active {
+            @include util.promptActive;
+        }
+    }
+
+    &__email-prompt {
+        @include util.promptPosition(968px);
+        @include util.prompt(util.$bgSecondary, util.$colorTxtPrompt, 4px, 8px);
+        @include util.promptAnimation;
+
+        @include media-query.respond("93.75em") {
+            left: 925px;
+        }
+
+        @include media-query.respond("86em") {
+            left: 855px;
+        }
+
+        @include media-query.respond("79em") {
+            left: 795px;
+        }
+
+        @include media-query.respond("75em") {
+            left: 765px;
+        }
+
+        @include media-query.respond("73em") {
+            left: 745px;
+        }
+
+        @include media-query.respond("68.75em") {
+            left: 705px;
+        }
+
+        @include media-query.respond("61.875em") {
+            font-size: 0.9rem;
+            left: 655px;
+        }
+
+        @include media-query.respond("56.5em") {
+            left: 610px;
+        }
+
+        @include media-query.respond("53.125em") {
+            left: 580px;
+        }
+
+        @include media-query.respond("46.875em") {
+            font-size: 0.7rem;
+            left: 480px;
+        }
+
+        @include media-query.respond("40.625em") {
+            font-size: 0.67rem;
+            left: 430px;
+        }
+
+        @include media-query.respond("36.25em") {
+            left: 390px;
+        }
+
+        @include media-query.respond("26.25em") {
+            left: 320px;
+        }
+
+        @include media-query.respond("25em") {
+            font-size: 0.65rem;
+            left: 290px;
+        }
+    }
+
+    &__email-error {
+        background-color: util.$errorPrompt;
+
+        &--active {
+            @include util.promptActive;
+        }
+    }
+
+    &__email-success {
+        background-color: util.$successPrompt;
+
+        &--active {
+            @include util.promptActive;
+        }
+    }
+
+    &__email-submit {
+        @include util.promptPosition(968px);
+        @include util.prompt(util.$namePrompt, util.$colorTxtPrompt, 4px, 8px);
+        @include util.promptAnimation;
+
+        @include media-query.respond("93.75em") {
+            left: 925px;
+        }
+
+        @include media-query.respond("86em") {
+            left: 855px;
+        }
+
+        @include media-query.respond("79em") {
+            left: 795px;
+        }
+
+        @include media-query.respond("75em") {
+            left: 765px;
+        }
+
+        @include media-query.respond("73em") {
+            left: 745px;
+        }
+
+        @include media-query.respond("68.75em") {
+            left: 705px;
+        }
+
+        @include media-query.respond("61.875em") {
+            font-size: 0.9rem;
+            left: 655px;
+        }
+
+        @include media-query.respond("56.5em") {
+            left: 610px;
+        }
+
+        @include media-query.respond("53.125em") {
+            left: 580px;
+        }
+
+        @include media-query.respond("46.875em") {
+            font-size: 0.7rem;
+            left: 480px;
+        }
+
+        @include media-query.respond("40.625em") {
+            font-size: 0.67rem;
+            left: 430px;
+        }
+
+        @include media-query.respond("36.25em") {
+            left: 390px;
+        }
+
+        @include media-query.respond("29.688em") {
+            left: 345px;
+        }
+
+        @include media-query.respond("29.688em") {
+            left: 345px;
+        }
+
+        @include media-query.respond("26.25em") {
+            left: 305px;
+        }
+
+        @include media-query.respond("25em") {
+            font-size: 0.65rem;
+            left: 290px;
+        }
+
+        &--active {
+            @include util.promptActive;
+        }
+    }
+
+    &__submit-container {
+        display: flex;
+        justify-content: center;
     }
 
     &__submit {
@@ -117,12 +360,65 @@ a {
         background-color: util.$bgWhite;
         @include util.hover(util.$primaryTheme);
 
-        @include media-query.respond('53.125em') {
-            font-size: .99rem;
+        @include media-query.respond("53.125em") {
+            font-size: 0.99rem;
         }
 
-        @include media-query.respond('26.75em') {
-            font-size: .9rem;
+        @include media-query.respond("46.875em") {
+            font-size: 0.85rem;
+            width: 100px;
+        }
+
+        @include media-query.respond("29.688em") {
+            font-size: 0.9rem;
+        }
+    }
+
+    &__alert {
+        @include util.newsletterAlertPrompt;
+        @include util.newsletterAlertHidden;
+
+        &.error {
+            background-color: util.$formPrompt;
+        }
+
+        &.success {
+            background-color: util.$successPrompt2;
+        }
+
+        &--active {
+            @include util.newsletterAlertShow;
+        }
+
+        &-close {
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.2s all ease-in-out;
+
+            @include util.hover(util.$colorBlack);
+
+            @media (hover: hover) {
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        &-icon {
+            width: 100%;
+        }
+
+        &-txt {
+            text-align: center;
+            font-size: 1.1rem;
+            color: util.$colorBlack;
+
+            @include media-query.respond("26.25em") {
+                line-height: 21px;
+                font-size: 0.9rem;
+            }
         }
     }
 }
@@ -133,35 +429,35 @@ a {
     &__title {
         @include util.txtSizeWeight(2rem);
 
-        @include media-query.respond('79em') {
+        @include media-query.respond("79em") {
             font-size: 1.75rem;
         }
 
-        @include media-query.respond('56.5em') {
+        @include media-query.respond("56.5em") {
             font-size: 1.6rem;
         }
 
-        @include media-query.respond('53.125em') {
+        @include media-query.respond("53.125em") {
             font-size: 1.4rem;
             margin: 5rem 0 2rem 0;
         }
 
-        @include media-query.respond('26.75em') {
+        @include media-query.respond("29.688em") {
             font-size: 1.3rem;
             text-align: center;
-             line-height: 2rem;
+            line-height: 2rem;
         }
     }
 
     &__img {
         width: 100%;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
 
-        @include media-query.respond('53.125em') {
+        @include media-query.respond("53.125em") {
             @include util.aspect-ratio;
         }
 
-        @include media-query.respond('26.75em') {
+        @include media-query.respond("29.688em") {
             width: 100%;
             aspect-ratio: unset; //Esto es para remover el aspect-ratio previo
         }
@@ -178,25 +474,25 @@ a {
     &__txt {
         font-size: 1.6rem;
 
-        @include media-query.respond('79em') {
+        @include media-query.respond("79em") {
             font-size: 1.4rem;
             padding: 1rem;
         }
 
-        @include media-query.respond('56.5em') {
+        @include media-query.respond("56.5em") {
             font-size: 1.39rem;
-            padding: 1rem .5rem;
+            padding: 1rem 0.5rem;
         }
 
-        @include media-query.respond('53.125em') {
+        @include media-query.respond("53.125em") {
             font-size: 1.3rem;
         }
 
-        @include media-query.respond('26.75em') {
+        @include media-query.respond("29.688em") {
             font-size: 1.1rem;
         }
 
-        @include media-query.respond('25em') {
+        @include media-query.respond("25em") {
             font-size: 1rem;
         }
     }
@@ -208,15 +504,14 @@ a {
 }
 
 .comments {
-
     &__title {
         @include util.txtSizeWeight(2rem);
 
-        @include media-query.respond('53.125em') {
+        @include media-query.respond("53.125em") {
             font-size: 1.4rem;
         }
 
-        @include media-query.respond('26.75em') {
+        @include media-query.respond("29.688em") {
             font-size: 1.3rem;
         }
     }
@@ -225,7 +520,7 @@ a {
         background-color: util.$bgOther;
         border-radius: 1rem;
     }
-    
+
     &__img {
         width: 75%;
         aspect-ratio: 1;
@@ -246,17 +541,14 @@ a {
 }
 
 .headlines {
-
     &__img {
         width: 100%;
         aspect-ratio: 1.65;
         object-fit: cover;
         margin: 0 0 1rem 0;
-
     }
 
     &__link {
-
         &-section {
             text-decoration: none;
             font-family: util.$barlowBold;
@@ -269,11 +561,11 @@ a {
             font-size: 1.5rem;
             font-weight: 600;
 
-            @include media-query.respond('56.5em') {
+            @include media-query.respond("56.5em") {
                 font-size: 1.428rem;
             }
 
-            @include media-query.respond('25em') {
+            @include media-query.respond("25em") {
                 font-size: 1.3rem;
             }
         }
@@ -283,7 +575,7 @@ a {
             font-family: util.$barlowLight;
             color: util.$txtColorSub;
             text-transform: uppercase;
-            font-size: .9rem;
+            font-size: 0.9rem;
         }
     }
 
@@ -291,10 +583,10 @@ a {
         font-family: util.$barlowLight;
         text-transform: uppercase;
         color: util.$txtColorSub;
-        font-size: .9rem;
+        font-size: 0.9rem;
 
-        @include media-query.respond('73em') {
-            font-size: .85rem;
+        @include media-query.respond("73em") {
+            font-size: 0.85rem;
         }
     }
 }
@@ -311,8 +603,8 @@ a {
         font-size: 1rem;
         margin: 0 0 1rem 0;
 
-        @include media-query.respond('75em') {
-            font-size: .95rem;
+        @include media-query.respond("75em") {
+            font-size: 0.95rem;
         }
     }
 
@@ -321,25 +613,25 @@ a {
         color: util.$colorFooterTxt;
         @include util.hover(util.$colorLinkHover);
 
-        @include media-query.respond('75em') {
-            font-size: .9rem;
+        @include media-query.respond("75em") {
+            font-size: 0.9rem;
         }
     }
 
     &__txt {
-        opacity: .8;
-        font-size: .9rem;
+        opacity: 0.8;
+        font-size: 0.9rem;
 
-        @include media-query.respond('56.5em') {
-            font-size: .8rem;
+        @include media-query.respond("56.5em") {
+            font-size: 0.8rem;
         }
 
-        @include media-query.respond('45em') {
+        @include media-query.respond("46.875em") {
             line-height: 1rem;
         }
 
-        @include media-query.respond('26.75em') {
-            font-size: .75rem;
+        @include media-query.respond("29.688em") {
+            font-size: 0.75rem;
             text-align: center;
         }
     }
